@@ -80,16 +80,8 @@ function HumanPlayer(board) {
   }
 
   function handleTurnTaken(event) {
-    const positionCoOrds = {
-      x: event.target.getAttribute('data-x'),
-      y: event.target.getAttribute('data-y'),
-    }
-
-    const positionQuery =
-      `[data-x="${positionCoOrds.x}"][data-y="${positionCoOrds.y}"]`;
-    const position = document.querySelector(positionQuery);
-    position.innerText = 'X';
-    board.positions.forEach((el) =>
-      el.removeEventListener('click', handleTurnTaken));
+    event.target.innerText = 'X';
+    board.positions
+      .forEach(el => el.removeEventListener('click', handleTurnTaken));
   }
 }
